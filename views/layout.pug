@@ -1,0 +1,65 @@
+doctype html
+html
+	head
+		title FashionInsta
+		link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+		link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/style.css')
+		link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/flaticon.css')
+		
+
+	body
+		nav.navbar.navbar-expand-lg.navbar-light.bg-light
+			a.navbar-brand(href='/')
+				img.d-inline-block.align-top(src='/bower_components/bootstrap/img/logo.png', width='30', height='30', alt='')
+				|       FashionInsta
+			|   
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			|   
+			#navbarSupportedContent.collapse.navbar-collapse.navbar-right
+				form.form-inline.my-2.my-lg-0
+						input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+						|       
+						button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+				ul.navbar-nav.mr-auto
+					li.nav-item
+						a.nav-link(href='/shopping-cart')
+							i.fas.fa-shopping-cart
+								span.badge= session.cart.totalQty
+					|       
+					li.nav-item.dropdown
+						a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+							i.fas.fa-user
+						|         
+						.dropdown-menu(aria-labelledby='navbarDropdown')
+							if login
+								a.dropdown-item(href='/user/profile') Profile
+								|                     
+								.dropdown-divider
+								|           
+								a.dropdown-item(href='/user/logout') Logout
+							else
+								a.dropdown-item(href='/user/signin') Sign In
+								|           
+								a.dropdown-item(href='/user/signup') Sign Up
+
+					
+
+
+		
+						
+				
+			
+		block content
+		br
+		hr
+		footer
+			p copyright &copy FashionInsta
+
+		script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+		|     
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+		|     
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+		|
+		script(src='https://kit.fontawesome.com/a076d05399.js')

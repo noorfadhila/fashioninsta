@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+	.container.text-center
+
+		form.form-sign.in(method='POST', action='/user/signin')
+			img.mb-4(src='/bower_components/bootstrap/img/logo.png', alt='', width='72', height='72')
+			|       
+			h1.h3.mb-3.font-weight-normal Sign In
+			if hasErrors
+				.alert.alert-danger
+					each message in messages
+						p= message 
+			|       
+			label.sr-only(for='email') Email address
+			|       
+			input#email.form-control(name='email', type='email', placeholder='Email address', required='', autofocus='')
+			|       
+			label.sr-only(for='password') Password
+			|       
+			input#password.form-control(name='password', type='password', placeholder='Password', required='')
+			|
+			input(type='text', name='_csrf', value=csrfToken)
+			.checkbox.mb-3
+				label
+					input(type='checkbox', value='remember-me')
+					|  Remember me
+			|       
+			button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign In
+			|
+
+
+
+

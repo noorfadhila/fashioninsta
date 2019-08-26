@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+	.container.text-center
+
+		h1 Hello User
+			|    
+		#form-group
+			label Name:
+			input.form-control(name='name', type='text')
+		#form-group
+			label Phone No.:
+			input.form-control(name='phone', type='text')
+		#form-group
+			label email:
+			textarea.form-control(name='email')
+		#form-group
+			label password:
+			input.form-control(name='password', type='text')
+		input.btn.btn-primary(type='submit', value='Submit')   
+

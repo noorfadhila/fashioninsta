@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	h1 #{title}
+	form(method='POST', action='/product/add')
+		#form-group
+			label Image Path:
+			input.form-control(name='imagePath', type='text')
+		#form-group
+			label Title:
+			input.form-control(name='title', type='text')
+		#form-group
+			label Category:
+			input.form-control(name='category', type='text')
+		#form-group
+			label Description:
+			textarea.form-control(name='description')
+		#form-group
+			label Price:
+			input.form-control(name='price', type='text')
+		input.btn.btn-primary(type='submit', value='Submit')

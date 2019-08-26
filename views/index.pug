@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+	header.masthead.text-center.text-white
+		.masthead-content
+			.container
+				h1.masthead-heading.mb-0 Be Yourself
+				|         
+				h2.masthead-subheading.mb-0 With FashionInsta
+				|         
+				a.btn.btn-primary.btn-xl.rounded-pill.mt-5(href='#') Join Now
+
+	.position-relative.overflow-hidden.p-3.p-md-5.m-md-3.text-center.bg-light
+
+	.container
+		.row
+			each product, i in products
+				.col-sm-6.col-md-4
+					.card(style='width: 18rem;')
+						img.card-img-top(src=product.imagePath, alt='...')
+						|   
+						.card-body
+							h5.card-title=product.title
+							|     
+							p.card-text=product.description
+							|
+							p.float-left Rp. 
+							p.float-left=product.price     
+							a.btn.btn-primary.float-right(href='/addtocart/'+product.id) Add to Cart

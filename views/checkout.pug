@@ -1,0 +1,47 @@
+extends layout
+
+block content
+
+	.container
+		if products
+			.card.shopping-cart
+				.card-body
+					each product, i in products
+						.row
+							.col
+								img.img-responsive(src= product.item.imagePath, width='100' height'100')
+							.col
+								h4.product-name= product.item.title
+								h4
+									small= product.item.description
+							.col-6.col-sm-12.text-sm-center.col-md-4.text-md-right.row
+								.col-4.col-sm-4.col-md-4
+									h6= product.qty
+										span.text-muted x
+								.col-3.col-sm-3.col-md-6.text-md-right(style='padding-top: 5px')
+									h6= product.item.price
+							.col
+								h5= product.price
+							.col
+								button.btn.btn-primary.button-xs.dropdown-toggle(type='button', data-toggle='dropdown') Action
+								ul.dropdown-menu
+									li
+										a(href='/reduce/'+product.item.id) Reduce 1	
+									li
+										a(href='/reduce/'+product.item.id) Remove all								
+
+				.card-footer
+					.pull-right(style='margin: 10px')
+						.pull-right(style='margin: 5px') Total Price Rp.
+							p= totalPrice
+							a.btn.btn-success.pull-right(href='/checkout') Checkout
+		else
+						.row
+							.col-sm-6.col-md-6.col-md-offset-3.col-sm-offset-3
+								h2 No Items in Cart
+						
+
+
+
+
+
